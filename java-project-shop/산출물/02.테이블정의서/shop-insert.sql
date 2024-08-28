@@ -26,20 +26,44 @@ insert into cart(cart_no,userId,p_no,cart_qty) values(cart_cart_no_seq.nextval,'
 insert into cart(cart_no,userId,p_no,cart_qty) values(cart_cart_no_seq.nextval,'guard2',3,1); 
 
 
+--guard3님이 1번1개,2번1개,3번1개,4번1개,5번1개,6번1개,7번1개,8번1개 제품담기
+insert into cart(cart_no,userId,p_no,cart_qty) values(cart_cart_no_seq.nextval,'guard3',1,1); 
+insert into cart(cart_no,userId,p_no,cart_qty) values(cart_cart_no_seq.nextval,'guard3',2,1); 
+insert into cart(cart_no,userId,p_no,cart_qty) values(cart_cart_no_seq.nextval,'guard3',3,1); 
+insert into cart(cart_no,userId,p_no,cart_qty) values(cart_cart_no_seq.nextval,'guard3',4,1); 
+insert into cart(cart_no,userId,p_no,cart_qty) values(cart_cart_no_seq.nextval,'guard3',5,1); 
+insert into cart(cart_no,userId,p_no,cart_qty) values(cart_cart_no_seq.nextval,'guard3',6,1); 
+insert into cart(cart_no,userId,p_no,cart_qty) values(cart_cart_no_seq.nextval,'guard3',7,1); 
+insert into cart(cart_no,userId,p_no,cart_qty) values(cart_cart_no_seq.nextval,'guard3',8,1); 
+
 /**********************orders insert************************/
 --guard1
 --제품상세보기에서주문
 
---카트에서주문
-insert into orders(o_no,o_desc,o_date,o_price,userid) values(orders_o_no_SEQ.nextval,'비글외1종',sysdate-2,950000,'guard1');
+--카트에서주문(guard1님이 1번1개,2번2개,3번3개 제품담기)
+insert into orders(o_no,o_desc,o_date,o_price,userid) values(orders_o_no_SEQ.nextval,'비글외1종',sysdate,950000,'guard1');
 insert into order_item(oi_no,oi_qty,o_no,p_no) values(order_item_oi_no_SEQ.nextval,1,orders_o_no_SEQ.currval,1);
-insert into order_item(oi_no,oi_qty,o_no,p_no) values(order_item_oi_no_SEQ.nextval,1,orders_o_no_SEQ.currval,2);
+insert into order_item(oi_no,oi_qty,o_no,p_no) values(order_item_oi_no_SEQ.nextval,2,orders_o_no_SEQ.currval,2);
+insert into order_item(oi_no,oi_qty,o_no,p_no) values(order_item_oi_no_SEQ.nextval,3,orders_o_no_SEQ.currval,3);
+
+--delete from cart where userid='guard1';
 
 --guard2
 --제품상세보기에서주문
 
---카트에서주문
-insert into orders(o_no,o_desc,o_date,o_price,userid) values(orders_o_no_SEQ.nextval,'비글외7종',sysdate-1,7200000,'guard2');
+--카트에서주문(guard2님이 1번3개,2번2개,3번1개 제품담기)
+insert into orders(o_no,o_desc,o_date,o_price,userid) values(orders_o_no_SEQ.nextval,'비글외1종',sysdate,950000,'guard1');
+insert into order_item(oi_no,oi_qty,o_no,p_no) values(order_item_oi_no_SEQ.nextval,3,orders_o_no_SEQ.currval,1);
+insert into order_item(oi_no,oi_qty,o_no,p_no) values(order_item_oi_no_SEQ.nextval,2,orders_o_no_SEQ.currval,2);
+insert into order_item(oi_no,oi_qty,o_no,p_no) values(order_item_oi_no_SEQ.nextval,1,orders_o_no_SEQ.currval,3);
+--delete from cart where userid='guard2';
+
+
+--guard3
+--제품상세보기에서주문
+
+--카트에서주문(guard3님이 1번1개,2번1개,3번1개,4번1개,5번1개,6번1개,7번1개,8번1개 제품담기)
+insert into orders(o_no,o_desc,o_date,o_price,userid) values(orders_o_no_SEQ.nextval,'비글외7종',sysdate,7200000,'guard3');
 insert into order_item(oi_no,oi_qty,o_no,p_no) values(order_item_oi_no_SEQ.nextval,1,orders_o_no_SEQ.currval,1);
 insert into order_item(oi_no,oi_qty,o_no,p_no) values(order_item_oi_no_SEQ.nextval,1,orders_o_no_SEQ.currval,2);
 insert into order_item(oi_no,oi_qty,o_no,p_no) values(order_item_oi_no_SEQ.nextval,1,orders_o_no_SEQ.currval,3);
@@ -48,6 +72,6 @@ insert into order_item(oi_no,oi_qty,o_no,p_no) values(order_item_oi_no_SEQ.nextv
 insert into order_item(oi_no,oi_qty,o_no,p_no) values(order_item_oi_no_SEQ.nextval,1,orders_o_no_SEQ.currval,6);
 insert into order_item(oi_no,oi_qty,o_no,p_no) values(order_item_oi_no_SEQ.nextval,1,orders_o_no_SEQ.currval,7);
 insert into order_item(oi_no,oi_qty,o_no,p_no) values(order_item_oi_no_SEQ.nextval,1,orders_o_no_SEQ.currval,8);
+--delete from cart where userid='guard3';
 
-
---commit;
+commit;

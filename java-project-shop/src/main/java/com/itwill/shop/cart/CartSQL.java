@@ -23,7 +23,8 @@ public class CartSQL {
 	---로그인한멤버(guard1)의 카트한개삭제(pk삭제)
 	delete from cart where cart_no=1;
 	
-	
+	--로그인한멤버(guard1) 카트아이템전체삭제
+	delete from cart where userid='guard1';
 
 	
 	--카트아이템한개의 수량증가(PK조건)

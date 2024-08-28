@@ -16,6 +16,26 @@ public class CartDao {
 		dataSource=new DataSource();
 	}
 	/*
+	 * 
+	 */
+	public int deleteByUserId(String sUserId) throws Exception {
+		Connection con=null;
+		PreparedStatement pstmt=null;
+		int deleteRowCount=0;
+		try {
+			con=dataSource.getConnection();
+			pstmt=con.prepareStatement(CartSQL.CART_DELETE_BY_USERID);
+			pstmt.setString(1, sUserId);
+			deleteRowCount = pstmt.executeUpdate();
+		}finally {
+			if(con!=null) {
+				con.close();
+			}
+		}
+		return deleteRowCount;
+	}
+	
+	/*
 	cart list
 	*/
 	
