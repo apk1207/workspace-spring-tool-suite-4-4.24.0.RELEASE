@@ -4,7 +4,7 @@ import com.itwill.shop.common.DataSource;
 
 public class UserDao {
 	private DataSource dataSource;
-	public UserDao() throws Exception {
-		dataSource = new DataSource();
+	public UserDao() throws Exception{
+		dataSource=new DataSource();
 	}
 }

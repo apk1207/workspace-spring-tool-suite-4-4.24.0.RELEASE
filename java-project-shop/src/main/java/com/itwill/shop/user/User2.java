@@ -25,7 +25,7 @@ VO(Value Object),DTO(Data Transfer Object)
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class User {
+public class User2 {
 	private String userId;
 	private String password;
 	private String name;

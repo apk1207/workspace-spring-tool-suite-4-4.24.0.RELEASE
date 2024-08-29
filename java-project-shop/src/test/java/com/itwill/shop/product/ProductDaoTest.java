@@ -1,6 +1,9 @@
 package com.itwill.shop.product;
 
-import static org.junit.jupiter.api.Assertions.*;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.util.List;
 
@@ -9,24 +12,25 @@ import org.junit.jupiter.api.Test;
 
 class ProductDaoTest {
 	ProductDao productDao;
-	@Test
+	//@Test
 	@BeforeEach
 	void setUp() throws Exception {
-		productDao = new ProductDao();
+		productDao=new ProductDao();
 		assertNotNull(productDao);
 	}
-
 	@Test
-	void testFindByNo() throws Exception {
+	void testFindByNo() throws Exception{
 		Product product = productDao.findByNo(1);
+		//System.out.println(product);
 		assertNotNull(product);
 		assertEquals(1, product.getP_no());
 	}
 
 	@Test
-	void testFindAll() throws Exception {
-		List<Product> productList = productDao.findAll();
-		assertTrue(productList.size() >= 0);
+	void testFindAll() throws Exception{
+		List<Product> productList=productDao.findAll();
+		System.out.println(productList.size());
+		assertTrue(productList.size() > 0);
 	}
 
 }
