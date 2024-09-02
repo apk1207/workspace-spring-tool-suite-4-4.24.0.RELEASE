@@ -28,18 +28,16 @@ DROP SEQUENCE product_p_no_SEQ;
 CREATE SEQUENCE product_p_no_SEQ NOMAXVALUE NOCACHE NOORDER NOCYCLE;
 
 
-
 CREATE TABLE cart(
 		cart_no                       		NUMBER(10)		 NULL ,
 		cart_qty                      		NUMBER(10)		 NULL ,
-		userid                        		VARCHAR2(100)		 NULL ,
-		p_no                          		NUMBER(10)		 NULL 
+		p_no                          		NUMBER(10)		 NULL ,
+		userid                        		VARCHAR2(100)		 NULL 
 );
 
 DROP SEQUENCE cart_cart_no_SEQ;
 
 CREATE SEQUENCE cart_cart_no_SEQ NOMAXVALUE NOCACHE NOORDER NOCYCLE;
-
 
 
 ALTER TABLE users ADD CONSTRAINT IDX_users_PK PRIMARY KEY (userid);

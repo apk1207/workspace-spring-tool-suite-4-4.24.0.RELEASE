@@ -1,6 +1,7 @@
 /************************users insert******************/
 --desc users;
 
+-- 회원정보 추가
 insert into users(userid,password,name,phone,email) values('user1','qqq','김철수','111-1111','qqq@qqq');
 insert into users(userid,password,name,phone,email) values('user2','www','김철수','222-2222','www@www');
 insert into users(userid,password,name,phone,email) values('user3','eee','김철수','333-3333','eee@eee');
@@ -9,6 +10,7 @@ insert into users(userid,password,name,phone,email) values('user3','eee','김철
 /************************product insert******************/
 --desc product;
 
+-- 메뉴정보 추가
 insert into product(p_no,p_image,p_name,p_desc,p_price) values(PRODUCT_P_NO_SEQ.nextval,'Americano.png','아메리카노','고품질 원두로 내린 에스프레소를 사용한 대표 메뉴',3500);
 insert into product(p_no,p_image,p_name,p_desc,p_price) values(PRODUCT_P_NO_SEQ.nextval,'CaffeLatte.png','카페 라떼','쓴맛이 덜하면서도 고소한 맛까지 느낄수 있는 커피',4500);
 insert into product(p_no,p_image,p_name,p_desc,p_price) values(PRODUCT_P_NO_SEQ.nextval,'CaramelMacchiato.png','카라멜 마끼아또','달달한 커피가 떙길 떄 추천!.',4500);
@@ -19,9 +21,12 @@ insert into product(p_no,p_image,p_name,p_desc,p_price) values(PRODUCT_P_NO_SEQ.
 /************************cart insert******************/
 --desc cart;
 
-insert into cart(cart_no,userid,p_no,cart_qty) values(cart_cart_no_seq.nextval,'user1',1,2);
-insert into cart(cart_no,userid,p_no,cart_qty) values(cart_cart_no_seq.nextval,'user1',4,1);
-insert into cart(cart_no,userid,p_no,cart_qty) values(cart_cart_no_seq.nextval,'user1',5,3);
+-- 상품 장바구니 추가
+insert into cart(cart_no, cart_qty, p_no, userid) values(cart_cart_no_seq.nextval, 2, 1, 'user1');
+insert into cart(cart_no, cart_qty, p_no, userid) values(cart_cart_no_seq.nextval, 1, 2, 'user1');
+insert into cart(cart_no, cart_qty, p_no, userid) values(cart_cart_no_seq.nextval, 4, 5, 'user1');
+
+
 
 
 --SELECT * FROM users WHERE userid = 'user1';
