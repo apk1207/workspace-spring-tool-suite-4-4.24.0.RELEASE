@@ -6,18 +6,23 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.itwill.shop.cart.Cart;
+import com.itwill.shop.cart.CartSQL;
 import com.itwill.shop.common.DataSource;
 /*
 쇼핑몰에서 상품테이블과의 데이타베이스와의 작업을 전담하는 클래스
 PRODUCT 테이블에 제품 검색 등의 작업을한다.
 */
+
+
 public class ProductDao {
 	private DataSource dataSource;
 	public ProductDao() throws Exception{
 		dataSource=new DataSource();
 	}
+	
+	
 	public Product findByNo(int p_no) throws Exception {
-		
 		Product product=null;
 		Connection con=dataSource.getConnection();
 		PreparedStatement pstmt=con.prepareStatement(ProductSQL.PRODUCT_SELECT_BY_NO);

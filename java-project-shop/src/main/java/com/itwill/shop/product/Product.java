@@ -17,25 +17,20 @@ VO(Value Object),DTO(Data Transfer Object)
 P_NO          NOT NULL NUMBER(10)    
 P_NAME                 VARCHAR2(50)  
 P_PRICE                NUMBER(10)    
-P_IMAGE                VARCHAR2(100) 
-P_DESC                 VARCHAR2(100) 
-P_CLICK_COUNT          NUMBER(10)      
+P_IMAGE                VARCHAR2(50)  
+P_DESC                 VARCHAR2(512) 
+P_CLICK_COUNT          NUMBER(10)    
  */
-
-/* lombok라이브러리를 사용하여 메소드모음 호출 */
-
 @Data
 @Builder
-// 모든인자를 사용한 생성자 생성
 @AllArgsConstructor
-// 기본생성자 생성
 @NoArgsConstructor
 public class Product {
-	
 	private int p_no;
 	private String p_name;
 	private int p_price;
 	private String p_image;
 	private String p_desc;
 	private int p_click_count;
+	
 }
