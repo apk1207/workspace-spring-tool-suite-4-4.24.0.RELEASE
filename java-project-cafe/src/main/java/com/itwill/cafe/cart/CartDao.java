@@ -7,8 +7,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.itwill.cafe.common.DataSource;
-import com.itwill.cafe.cart.Cart;
-import com.itwill.cafe.cart.CartSQL;
 import com.itwill.cafe.product.Product;
 import com.itwill.cafe.user.User;
 
@@ -26,7 +24,7 @@ public class CartDao {
 		Connection con = dataSource.getConnection();
 		PreparedStatement pstmt = con.prepareStatement(CartSQL.CART_INSERT);
 		
-		pstmt.setInt(1, cart.getCartQTY());
+		pstmt.setInt(1, cart.getCartQty());
 		pstmt.setInt(2, cart.getProduct().getPNo());
 		pstmt.setString(3, cart.getUser().getUserId());
 		pstmt.executeUpdate();
@@ -105,7 +103,7 @@ public class CartDao {
 		try {
 			con=dataSource.getConnection();
 			pstmt=con.prepareStatement(CartSQL.CART_UPDATE_BY_PRODUCT_NO);
-			pstmt.setInt(1, cart.getCartQTY());
+			pstmt.setInt(1, cart.getCartQty());
 			pstmt.setString(2, cart.getUser().getUserId());
 			pstmt.setInt(3, cart.getProduct().getPNo());
 			pstmt.executeUpdate();
@@ -169,7 +167,7 @@ public class CartDao {
 			while(rs.next()) {
 				cartList.add(Cart.builder()
 							.cartNo(rs.getInt("cart_no"))
-							.cartQTY(rs.getInt("cart_qty"))
+							.cartQty(rs.getInt("cart_qty"))
 							.user(User.builder().
 								  userId(rs.getString("userid"))
 								  .build())

@@ -8,7 +8,7 @@ import lombok.NoArgsConstructor;
 /*
 이름       널?       유형            
 -------- -------- ------------- 
-USERID   NOT NULL VARCHAR2(100) 
+USERID   NOT NULL VARCHAR2(100) 	PK
 PASSWORD          VARCHAR2(100) 
 NAME              VARCHAR2(100) 
 PHONE             VARCHAR2(100) 

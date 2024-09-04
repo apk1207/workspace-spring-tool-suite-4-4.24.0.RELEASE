@@ -1,18 +1,23 @@
-package com.itwill.cafe.product;
+package com.itwill.cafe.order;
 /*
 이름      널?       유형            
 ------- -------- ------------- 
-P_NO    NOT NULL NUMBER(10)    PK
-P_IMAGE          VARCHAR2(100) 
-P_NAME           VARCHAR2(50)  
-P_DESC           VARCHAR2(100) 
-P_PRICE          NUMBER(10)  
+O_NO    NOT NULL NUMBER(10)    
+O_DESC           VARCHAR2(100) 
+O_DATE           DATE          
+O_PRICE          NUMBER(10)    
+USERID           VARCHAR2(100) 
  */
 
+import java.util.Date;
+import java.util.List;
+import java.util.ArrayList;
+import com.itwill.cafe.product.Product;
 import com.itwill.cafe.user.User;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
+import lombok.Builder.Default;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -21,10 +26,17 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor		// 매개변수가 없는 기본 생성자를 자동으로 생성
 @Builder				// 빌더 패턴에 따라 객체를 생성할 수 있는 메소드를 자동으로 생성
 
-public class Product {
-	private int pNo;
-	private String pImage;
-	private String pName;
-	private String pDesc;
-	private int pPrice;
+public class Order {
+	
+	private int oNo;
+	private String oDesc;
+	private Date oDate;
+	private int oPrice;
+	/********FK********/
+	private User user;
+	
+	/********FK********/
+	@Default
+	private List<OrderItem> orderItems = new ArrayList<OrderItem>();
+	
 }

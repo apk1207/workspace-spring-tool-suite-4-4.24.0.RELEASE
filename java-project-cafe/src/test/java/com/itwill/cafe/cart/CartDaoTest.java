@@ -23,8 +23,8 @@ class CartDaoTest {
 	//@Test
 	void testInserCart() throws Exception {
 		// insert into cart(cart_no, cart_qty, p_no, userid) values(cart_cart_no_seq.nextval, ?, ?, ?)
-		Cart cart = new Cart().builder()
-				.cartQTY(4)
+		Cart cart = Cart.builder()
+				.cartQty(4)
 				.product(Product.builder().pNo(2).build())
 				.user(User.builder().userId("user2").build())
 				.build();
@@ -70,8 +70,8 @@ class CartDaoTest {
 	//@Test
 	void testUpdateByProductNoCart() throws Exception {
 		// update cart set cart_qty=cart_qty+? where userid=? and p_no=?
-		Cart updateCart = new Cart().builder()
-									.cartQTY(5)
+		Cart updateCart = Cart.builder()
+									.cartQty(5)
 									.user(User.builder().userId("user1").build())
 									.product(Product.builder().pNo(5).build())
 									.build();
