@@ -90,4 +90,19 @@ public class UserDao {
 		return selectUser;
 	}
 	
+	/*
+	 * 인자로 전달되는 아이디를 가지는 사용자가 존재하는지 여부를 판별
+	 */
+	public int countByUserId(String userId) throws Exception {
+		Connection con=dataSource.getConnection();
+		PreparedStatement pstmt=con.prepareStatement(UserSQL.USER_SELECT_BY_ID_COUNT);
+		pstmt.setString(1, userId);
+		ResultSet rs=pstmt.executeQuery();
+		rs.next();
+		int userCount = rs.getInt(1);
+		return userCount;
+		
+	}
+
+	
 }

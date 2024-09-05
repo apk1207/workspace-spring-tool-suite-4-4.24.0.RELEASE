@@ -313,6 +313,10 @@ public class MemberMainFrame extends JFrame {
 		memberJoinPanel.add(memberJoinBtn);
 
 		JButton memberCancleBtn = new JButton("취소");
+		memberCancleBtn.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
 		memberCancleBtn.setBounds(210, 375, 97, 23);
 		memberJoinPanel.add(memberCancleBtn);
 

@@ -74,22 +74,23 @@ public class OrderDao {
 	
 	
 	// 유저의 주문내역 조회
-	public Order selectByUserId(String userId) throws Exception {
+	public List<Order> selectByUserId(String userId) throws Exception {
 		// select * from orders where userid=?
-		Order orderList = null;
+		List<Order> orderList = new ArrayList<Order>();
 		Connection con = dataSource.getConnection();
 		PreparedStatement pstmt = con.prepareStatement(OrderSQL.ORDER_SELECT_BY_USERID);
 		pstmt.setString(1, userId);
 		ResultSet rs = pstmt.executeQuery();
 		
-		if(rs.next()) {
-			orderList = new Order().builder()
+		while(rs.next()) {
+			orderList.add(new Order().builder()
 					.oNo(rs.getInt("o_no"))
 					.oDesc(rs.getString("o_desc"))
 					.oDate(rs.getDate("o_date"))
 					.oPrice(rs.getInt("o_price"))
 					.user(User.builder().userId(rs.getString("userid")).build())
-					.build();
+					.orderItems(null)
+					.build());
 		}
 		
 		return orderList;

@@ -28,8 +28,8 @@ public class Cart {
 	private int cartQty;
 	
 	/***********FK***********/
-	private Product product;
-	private User user;
+	private Product product;	// p_no
+	private User user;			// userid
 	
 	
 }

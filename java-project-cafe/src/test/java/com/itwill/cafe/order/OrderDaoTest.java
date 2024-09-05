@@ -2,6 +2,8 @@ package com.itwill.cafe.order;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import java.util.List;
+
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -43,7 +45,7 @@ class OrderDaoTest {
 	//@Test
 	void testSelectByUserId() throws Exception {
 		String user = "user1";
-		Order orderList = orderDao.selectByUserId(user);
+		List<Order> orderList = orderDao.selectByUserId(user);
 		System.out.println(orderList);
 	}
 

@@ -53,7 +53,6 @@ join product p
 on oi.p_no=p.p_no
 where o.userid='user1';
 
--- orders 주문번호에 대한 상세 주문내역 조히
+-- orders 주문번호에 대한 상세 주문내역 조회
 select * from orders o join order_item oi on o.o_no=oi.o_no  join  product p on oi.p_no=p.p_no where  o.o_no = 1;
-
 

@@ -28,7 +28,7 @@ public class OrderItem {
 	private int oiQty;
 	
 	/***********FK***********/
-	private Order order;
-	private Product product;
+	private Order order;		// o_no
+	private Product product;	// p_no
 	
 }
