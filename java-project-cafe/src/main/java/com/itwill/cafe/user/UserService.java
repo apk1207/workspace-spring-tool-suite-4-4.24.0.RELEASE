@@ -79,4 +79,11 @@ public class UserService {
 		return userDao.delete(userId);
 	}
 	
+	/*
+	 * 회원정보수정
+	 */
+	public int update(User user) throws Exception {
+		return userDao.update(user);
+	}
+	
 }

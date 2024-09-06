@@ -59,6 +59,8 @@ public class cafeMainFrame extends JFrame {
 	private JTextField infoIdTF;
 	private JTextField infoPassTF;
 	private JButton logoutButton;
+	private JButton updateInfoButton;
+	private JButton updateModeButton;
 
 	/**
 	 * Launch the application.
@@ -108,7 +110,7 @@ public class cafeMainFrame extends JFrame {
 		panel.add(logoutButton);
 		
 		loginuserNameLabel = new JLabel("");
-		loginuserNameLabel.setBounds(12, 7, 57, 15);
+		loginuserNameLabel.setBounds(12, 7, 122, 15);
 		panel.add(loginuserNameLabel);
 		
 		tabbedPane = new JTabbedPane(JTabbedPane.TOP);
@@ -157,7 +159,7 @@ public class cafeMainFrame extends JFrame {
 					User loginUser = userService.login(id, password);
 					if(loginUser!=null) {
 						//로그인성공
-						loginuserNameLabel.setText(id);
+						loginuserNameLabel.setText("접속유저: "+id);
 						JOptionPane.showMessageDialog(null,id+"님 로그인 성공");
 						loginProcess(loginUser);
 						displayUserInfo(loginUser);
@@ -308,6 +310,11 @@ public class cafeMainFrame extends JFrame {
 					} else {
 						//가입성공--> 로그인화면 전환
 						JOptionPane.showMessageDialog(null,id+"님 가입을 환영합니다!");
+						newIdTF.setText("");
+						newPassTF.setText("");
+						newNameTF.setText("");
+						newPhoneTF.setText("");
+						newEmailTF.setText("");
 						tabbedPane.setSelectedIndex(1);
 					}
 					
@@ -348,22 +355,9 @@ public class cafeMainFrame extends JFrame {
 		emailMsgLB.setBounds(170, 304, 174, 15);
 		newMemberPanel.add(emailMsgLB);
 		
-		JPanel cartPanel = new JPanel();
-		tabbedPane.addTab("장바구니", null, cartPanel, null);
-		
-		JPanel orderPanel = new JPanel();
-		tabbedPane.addTab("주문내역", null, orderPanel, null);
-
-		/********초기 실행화면************/
-		loginuserNameLabel.setText("geust");
-		tabbedPane.setEnabledAt(3,false);
-		tabbedPane.setEnabledAt(4,false);
-		logoutButton.setEnabled(false);
-		tabbedPane.setSelectedIndex(0);
-		
 		JPanel userInfoPanel = new JPanel();
 		tabbedPane.addTab("회원정보", null, userInfoPanel, null);
-		tabbedPane.setEnabledAt(5,false);
+		tabbedPane.setEnabledAt(3,false);
 		userInfoPanel.setLayout(null);
 		
 		JLabel infoid = new JLabel("아이디");
@@ -411,9 +405,83 @@ public class cafeMainFrame extends JFrame {
 		userInfoPanel.add(infoPassTF);
 		infoPassTF.setColumns(10);
 		
+		updateModeButton = new JButton("수정모드전환");
+		updateModeButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				String enableText = updateModeButton.getText();
+				if(enableText.equals("수정모드전환")) {
+					updateFormEnable(true);
+					updateModeButton.setText("수정취소");
+					updateInfoButton.setVisible(true);
+				} else if(enableText.equals("수정취소")) {
+					displayUserInfo(loginUser);
+					updateModeButton.setText("수정모드전환");	
+					updateInfoButton.setVisible(false);
+				}
+			}
+		
+		});
+		updateModeButton.setBounds(43, 313, 116, 61);
+		userInfoPanel.add(updateModeButton);
+		
+		updateInfoButton = new JButton("회원정보수정");
+		updateInfoButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				try {
+					updateUserInfo();
+					loginUser = userService.findUser(infoIdTF.getText());
+					displayUserInfo(loginUser);
+				} catch (Exception e1) {
+					e1.printStackTrace();
+				}
+				
+			}
+		});
+		updateInfoButton.setBounds(229, 313, 116, 61);
+		userInfoPanel.add(updateInfoButton);
+		
+		JButton userDeleteButton = new JButton("회원탈퇴");
+		userDeleteButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				int result = JOptionPane.showConfirmDialog(null, "정말로 탈퇴하시겠습니까?\n탈퇴 시 복구 불가능합니다.","탈퇴안내",JOptionPane.OK_CANCEL_OPTION);
+				if(result == JOptionPane.OK_OPTION) {
+					try {
+						deleteUser();
+						logoutProcess();
+					} catch (Exception e1) {
+						e1.printStackTrace();
+					}
+				}
+			}
+		});
+		userDeleteButton.setBounds(290, 10, 117, 33);
+		userInfoPanel.add(userDeleteButton);
+		
+		JPanel cartPanel = new JPanel();
+		tabbedPane.addTab("장바구니", null, cartPanel, null);
+		cartPanel.setLayout(null);
+		
+		JLabel failLabel_1 = new JLabel("장바구니였으면 좋을뻔한것");
+		failLabel_1.setBounds(30, 22, 338, 51);
+		cartPanel.add(failLabel_1);
+		
+		JPanel orderPanel = new JPanel();
+		tabbedPane.addTab("주문내역", null, orderPanel, null);
+		orderPanel.setLayout(null);
+		
+		JLabel failLabel_2 = new JLabel("주문내역이 되고싶었던 것");
+		failLabel_2.setBounds(37, 27, 311, 51);
+		orderPanel.add(failLabel_2);
+		
 		
 		userService = new UserService();
 		
+		/********초기 실행화면************/
+		loginuserNameLabel.setText("접속유저: guest");
+		tabbedPane.setEnabledAt(4,false);
+		tabbedPane.setEnabledAt(5,false);
+		logoutButton.setEnabled(false);
+		tabbedPane.setSelectedIndex(0);
 		
 	}
 	
@@ -450,7 +518,7 @@ public class cafeMainFrame extends JFrame {
 		 ********************************************/
 		loginUser = null;
 	
-		loginuserNameLabel.setText("geust");
+		loginuserNameLabel.setText("접속유저: guest");
 		loginIdTF.setText("");
 		loginPassTF.setText("");
 		
@@ -476,6 +544,49 @@ public class cafeMainFrame extends JFrame {
 		infoPhoneTF.setText(user.getPhone());
 		infoEmailTF.setText(user.getEmail());
 		
+		/***회원정보 수정폼 비활성화(아이디는 절대 수정불가!!****/
+		infoIdTF.setEditable(false);
+		updateFormEnable(false);
+		/***회원정보 수정 이벤트 버튼 숨기기****/
+		updateInfoButton.setVisible(false);
+		
+	}
+
+	
+	/************* 회원수정폼 활성/불활성화 ****************/
+	private void updateFormEnable(boolean b) {
+		infoPassTF.setEditable(b);
+		infoNameTF.setEditable(b);
+		infoPhoneTF.setEditable(b);
+		infoEmailTF.setEditable(b);
 	}
 	
+	
+	/************* 회원정보 업데이트시 호출할 메쏘드 ****************/
+	private void updateUserInfo() throws Exception {
+
+		User updateUser = User.builder()
+				.userId(infoIdTF.getText())
+				.password(infoPassTF.getText())
+				.name(infoNameTF.getText())
+				.phone(infoPhoneTF.getText())
+				.email(infoEmailTF.getText())
+				.build();
+		
+		userService.update(updateUser);
+		JOptionPane.showMessageDialog(null, "회원정보가 수정되었습니다.");	
+		updateModeButton.setText("수정모드전환");
+	
+		
+	}
+	
+	
+	/************* 회원탈퇴시 호출할 메쏘드 ****************/
+	private void deleteUser() throws Exception {
+		String deleteUserId = loginUser.getUserId();
+		userService.remove(deleteUserId);
+		JOptionPane.showMessageDialog(null, "탈퇴처리가 완료되었습니다.\n이용해주셔서 감사합니다.");
+		logoutProcess();
+		
+	}
 }
