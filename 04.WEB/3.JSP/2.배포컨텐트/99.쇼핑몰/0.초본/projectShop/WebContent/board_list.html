@@ -1,0 +1,392 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>게시판</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel=stylesheet href="css/styles.css" type="text/css">
+<link rel=stylesheet href="css/board.css" type="text/css">
+<script type="text/javascript">
+	function boardCreate() {
+		location.href = "board_write.jsp";
+	}
+</script>
+</head>
+<body bgcolor=#FFFFFF text=#000000 leftmargin=0 topmargin=0
+	marginwidth=0 marginheight=0>
+	<!-- container start-->
+	<div id="container">
+		<!-- header start -->
+		<div id="header">
+			<!-- include_common_top.jsp start-->
+			
+<h1>
+	<a href="user_main.jsp">WEB SAMPLE SITE</a>
+</h1>
+			<!-- include_common_top.jsp end-->
+		</div>
+		<!-- header end -->
+		<!-- navigation start-->
+		<div id="navigation">
+			<!-- include_common_left.jsp start-->
+			
+    
+<p>
+	<strong>메 뉴</strong>
+</p>
+<ul>
+	
+		<li><a></a></li>
+		<li><a href="board_write.jsp">게시판쓰기</a></li>
+		<li><a href="board_list.jsp">게시판리스트</a></li>
+</ul>
+
+
+			<!-- include_common_left.jsp end-->
+		</div>
+		<!-- navigation end-->
+		<!-- wrapper start -->
+		<div id="wrapper">
+			<!-- content start -->
+			<!-- include_content.jsp start-->
+
+			<div id="content">
+				<table border=0 cellpadding=0 cellspacing=0>
+					<tr>
+						<td><br />
+							<table style="padding-left: 10px" border=0 cellpadding=0
+								cellspacing=0>
+								<tr>
+									<td bgcolor="f4f4f4" height="22">&nbsp;&nbsp; <b>게시판-리스트</b>
+									</td>
+								</tr>
+								<tr bgcolor="#FFFFFF">
+									<td height="20" class="t1" align="right" valign="bottom">♠
+										총 <font color="#FF0000">563</font>
+										건 | 현재페이지( <font color="#FF0000">1</font>
+										/ <font color="#0000FF">57</font>
+										)
+									</td>
+								</tr>
+							</table> <br /> <!-- list -->
+							<form name="f" method="post" action="">
+								<table border="0" cellpadding="0" cellspacing="1" width="590"
+									bgcolor="BBBBBB">
+
+									<tr>
+										<td width=280 align=center bgcolor="E6ECDE">제목</td>
+										<td width=120 align=center bgcolor="E6ECDE">글쓴이</td>
+										<td width=120 align=center bgcolor="E6ECDE">글쓴날</td>
+										<td width=70 align=center bgcolor="E6ECDE">본횟수</td>
+									</tr>
+									
+									<tr>
+										<td width=280 bgcolor="ffffff" style="padding-left: 10px" align="left">
+										<a href='board_view.jsp?boardno=563&pageno=1'>
+										게시판타이틀563
+										</a>
+										</td>
+										<td width=120 align=center bgcolor="ffffff">김경호563
+										</td>
+										<td width=120 bgcolor="ffffff" style="padding-left: 10px" align="left">
+											2020-08-31
+										</td>
+										<td width=70 align=center bgcolor="ffffff" align="left">0
+										</td>
+									</tr>
+									<!-- 
+									<tr>
+										<td width=280 bgcolor="ffffff" style="padding-left: 10"><a
+											href='board_view.jsp?boardno=532&pageno=6'>게시판타이틀514</a></td>
+										<td width=120 align=center bgcolor="ffffff">김경호514</td>
+										<td width=120 bgcolor="ffffff" style="padding-left: 10">2014-12-23
+										</td>
+										<td width=70 align=center bgcolor="ffffff">0</td>
+									</tr>
+									 -->
+									
+									<tr>
+										<td width=280 bgcolor="ffffff" style="padding-left: 10px" align="left">
+										<a href='board_view.jsp?boardno=562&pageno=1'>
+										게시판타이틀562
+										</a>
+										</td>
+										<td width=120 align=center bgcolor="ffffff">김경호562
+										</td>
+										<td width=120 bgcolor="ffffff" style="padding-left: 10px" align="left">
+											2020-08-31
+										</td>
+										<td width=70 align=center bgcolor="ffffff" align="left">0
+										</td>
+									</tr>
+									<!-- 
+									<tr>
+										<td width=280 bgcolor="ffffff" style="padding-left: 10"><a
+											href='board_view.jsp?boardno=532&pageno=6'>게시판타이틀514</a></td>
+										<td width=120 align=center bgcolor="ffffff">김경호514</td>
+										<td width=120 bgcolor="ffffff" style="padding-left: 10">2014-12-23
+										</td>
+										<td width=70 align=center bgcolor="ffffff">0</td>
+									</tr>
+									 -->
+									
+									<tr>
+										<td width=280 bgcolor="ffffff" style="padding-left: 10px" align="left">
+										<a href='board_view.jsp?boardno=561&pageno=1'>
+										게시판타이틀561
+										</a>
+										</td>
+										<td width=120 align=center bgcolor="ffffff">김경호561
+										</td>
+										<td width=120 bgcolor="ffffff" style="padding-left: 10px" align="left">
+											2020-08-31
+										</td>
+										<td width=70 align=center bgcolor="ffffff" align="left">0
+										</td>
+									</tr>
+									<!-- 
+									<tr>
+										<td width=280 bgcolor="ffffff" style="padding-left: 10"><a
+											href='board_view.jsp?boardno=532&pageno=6'>게시판타이틀514</a></td>
+										<td width=120 align=center bgcolor="ffffff">김경호514</td>
+										<td width=120 bgcolor="ffffff" style="padding-left: 10">2014-12-23
+										</td>
+										<td width=70 align=center bgcolor="ffffff">0</td>
+									</tr>
+									 -->
+									
+									<tr>
+										<td width=280 bgcolor="ffffff" style="padding-left: 10px" align="left">
+										<a href='board_view.jsp?boardno=560&pageno=1'>
+										게시판타이틀560
+										</a>
+										</td>
+										<td width=120 align=center bgcolor="ffffff">김경호560
+										</td>
+										<td width=120 bgcolor="ffffff" style="padding-left: 10px" align="left">
+											2020-08-31
+										</td>
+										<td width=70 align=center bgcolor="ffffff" align="left">0
+										</td>
+									</tr>
+									<!-- 
+									<tr>
+										<td width=280 bgcolor="ffffff" style="padding-left: 10"><a
+											href='board_view.jsp?boardno=532&pageno=6'>게시판타이틀514</a></td>
+										<td width=120 align=center bgcolor="ffffff">김경호514</td>
+										<td width=120 bgcolor="ffffff" style="padding-left: 10">2014-12-23
+										</td>
+										<td width=70 align=center bgcolor="ffffff">0</td>
+									</tr>
+									 -->
+									
+									<tr>
+										<td width=280 bgcolor="ffffff" style="padding-left: 10px" align="left">
+										<a href='board_view.jsp?boardno=559&pageno=1'>
+										게시판타이틀559
+										</a>
+										</td>
+										<td width=120 align=center bgcolor="ffffff">김경호559
+										</td>
+										<td width=120 bgcolor="ffffff" style="padding-left: 10px" align="left">
+											2020-08-31
+										</td>
+										<td width=70 align=center bgcolor="ffffff" align="left">1
+										</td>
+									</tr>
+									<!-- 
+									<tr>
+										<td width=280 bgcolor="ffffff" style="padding-left: 10"><a
+											href='board_view.jsp?boardno=532&pageno=6'>게시판타이틀514</a></td>
+										<td width=120 align=center bgcolor="ffffff">김경호514</td>
+										<td width=120 bgcolor="ffffff" style="padding-left: 10">2014-12-23
+										</td>
+										<td width=70 align=center bgcolor="ffffff">0</td>
+									</tr>
+									 -->
+									
+									<tr>
+										<td width=280 bgcolor="ffffff" style="padding-left: 10px" align="left">
+										<a href='board_view.jsp?boardno=558&pageno=1'>
+										게시판타이틀558
+										</a>
+										</td>
+										<td width=120 align=center bgcolor="ffffff">김경호558
+										</td>
+										<td width=120 bgcolor="ffffff" style="padding-left: 10px" align="left">
+											2020-08-31
+										</td>
+										<td width=70 align=center bgcolor="ffffff" align="left">0
+										</td>
+									</tr>
+									<!-- 
+									<tr>
+										<td width=280 bgcolor="ffffff" style="padding-left: 10"><a
+											href='board_view.jsp?boardno=532&pageno=6'>게시판타이틀514</a></td>
+										<td width=120 align=center bgcolor="ffffff">김경호514</td>
+										<td width=120 bgcolor="ffffff" style="padding-left: 10">2014-12-23
+										</td>
+										<td width=70 align=center bgcolor="ffffff">0</td>
+									</tr>
+									 -->
+									
+									<tr>
+										<td width=280 bgcolor="ffffff" style="padding-left: 10px" align="left">
+										<a href='board_view.jsp?boardno=557&pageno=1'>
+										게시판타이틀557
+										</a>
+										</td>
+										<td width=120 align=center bgcolor="ffffff">김경호557
+										</td>
+										<td width=120 bgcolor="ffffff" style="padding-left: 10px" align="left">
+											2020-08-31
+										</td>
+										<td width=70 align=center bgcolor="ffffff" align="left">0
+										</td>
+									</tr>
+									<!-- 
+									<tr>
+										<td width=280 bgcolor="ffffff" style="padding-left: 10"><a
+											href='board_view.jsp?boardno=532&pageno=6'>게시판타이틀514</a></td>
+										<td width=120 align=center bgcolor="ffffff">김경호514</td>
+										<td width=120 bgcolor="ffffff" style="padding-left: 10">2014-12-23
+										</td>
+										<td width=70 align=center bgcolor="ffffff">0</td>
+									</tr>
+									 -->
+									
+									<tr>
+										<td width=280 bgcolor="ffffff" style="padding-left: 10px" align="left">
+										<a href='board_view.jsp?boardno=556&pageno=1'>
+										게시판타이틀556
+										</a>
+										</td>
+										<td width=120 align=center bgcolor="ffffff">김경호556
+										</td>
+										<td width=120 bgcolor="ffffff" style="padding-left: 10px" align="left">
+											2020-08-31
+										</td>
+										<td width=70 align=center bgcolor="ffffff" align="left">0
+										</td>
+									</tr>
+									<!-- 
+									<tr>
+										<td width=280 bgcolor="ffffff" style="padding-left: 10"><a
+											href='board_view.jsp?boardno=532&pageno=6'>게시판타이틀514</a></td>
+										<td width=120 align=center bgcolor="ffffff">김경호514</td>
+										<td width=120 bgcolor="ffffff" style="padding-left: 10">2014-12-23
+										</td>
+										<td width=70 align=center bgcolor="ffffff">0</td>
+									</tr>
+									 -->
+									
+									<tr>
+										<td width=280 bgcolor="ffffff" style="padding-left: 10px" align="left">
+										<a href='board_view.jsp?boardno=555&pageno=1'>
+										게시판타이틀555
+										</a>
+										</td>
+										<td width=120 align=center bgcolor="ffffff">김경호555
+										</td>
+										<td width=120 bgcolor="ffffff" style="padding-left: 10px" align="left">
+											2020-08-31
+										</td>
+										<td width=70 align=center bgcolor="ffffff" align="left">0
+										</td>
+									</tr>
+									<!-- 
+									<tr>
+										<td width=280 bgcolor="ffffff" style="padding-left: 10"><a
+											href='board_view.jsp?boardno=532&pageno=6'>게시판타이틀514</a></td>
+										<td width=120 align=center bgcolor="ffffff">김경호514</td>
+										<td width=120 bgcolor="ffffff" style="padding-left: 10">2014-12-23
+										</td>
+										<td width=70 align=center bgcolor="ffffff">0</td>
+									</tr>
+									 -->
+									
+									<tr>
+										<td width=280 bgcolor="ffffff" style="padding-left: 10px" align="left">
+										<a href='board_view.jsp?boardno=554&pageno=1'>
+										게시판타이틀554
+										</a>
+										</td>
+										<td width=120 align=center bgcolor="ffffff">김경호554
+										</td>
+										<td width=120 bgcolor="ffffff" style="padding-left: 10px" align="left">
+											2020-08-31
+										</td>
+										<td width=70 align=center bgcolor="ffffff" align="left">0
+										</td>
+									</tr>
+									<!-- 
+									<tr>
+										<td width=280 bgcolor="ffffff" style="padding-left: 10"><a
+											href='board_view.jsp?boardno=532&pageno=6'>게시판타이틀514</a></td>
+										<td width=120 align=center bgcolor="ffffff">김경호514</td>
+										<td width=120 bgcolor="ffffff" style="padding-left: 10">2014-12-23
+										</td>
+										<td width=70 align=center bgcolor="ffffff">0</td>
+									</tr>
+									 -->
+									
+								</table>
+								<!-- /list -->
+							</form> <br>
+							<table border="0" cellpadding="0" cellspacing="1" width="590">
+								<tr>
+									<td align="center">
+										 
+										
+										
+										 <font color='blue'><strong>1</strong></font>&nbsp;
+										
+										<a href="./board_list.jsp?pageno=2"><strong>2</strong></a>&nbsp;
+										
+										<a href="./board_list.jsp?pageno=3"><strong>3</strong></a>&nbsp;
+										
+										<a href="./board_list.jsp?pageno=4"><strong>4</strong></a>&nbsp;
+										
+										<a href="./board_list.jsp?pageno=5"><strong>5</strong></a>&nbsp;
+										
+										<a href="./board_list.jsp?pageno=6"><strong>6</strong></a>&nbsp;
+										
+										<a href="./board_list.jsp?pageno=7"><strong>7</strong></a>&nbsp;
+										
+										<a href="./board_list.jsp?pageno=8"><strong>8</strong></a>&nbsp;
+										
+										<a href="./board_list.jsp?pageno=9"><strong>9</strong></a>&nbsp;
+										
+										<a href="./board_list.jsp?pageno=10"><strong>10</strong></a>&nbsp;
+										
+										    <a
+										href="./board_list.jsp?pageno=11">▶&nbsp;</a>
+										  <a
+										href="./board_list.jsp?pageno=57">▶▶</a>&nbsp;
+										
+									</td>
+								</tr>
+							</table> <!-- button -->
+							<table border="0" cellpadding="0" cellspacing="1" width="590">
+								<tr>
+									<td align="right"><input type="button" value="게시물 생성"
+										onclick="boardCreate();" /></td>
+								</tr>
+							</table></td>
+					</tr>
+				</table>
+			</div>
+			<!-- include_content.jsp end-->
+			<!-- content end -->
+		</div>
+		<!--wrapper end-->
+		<div id="footer">
+			<!-- include_common_bottom.jsp start-->
+			
+	<p align="center">Copyright (&copy;) By Kimkyoungho.[김경호] All
+		rights reserved.</p>
+			<!-- include_common_bottom.jsp end-->
+		</div>
+	</div>
+	<!--container end-->
+</body>
+</html>

@@ -1,0 +1,12 @@
+http://www.apache.org/
+
+http://tomcat.apache.org/
+ Apache Tomcat
+   - 웹(WWW,HTTP)서버
+   - 웹(서블릿&JSP) 컨테이너
+
+
+1. 다운로드설치
+2. JAVA_HOME 환경변수설정
+3. 기본포트 8080으로설정되어있음(변경가능)
+2. TOMCAT_HOME/bin -->startup.bat

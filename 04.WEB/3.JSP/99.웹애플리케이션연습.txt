@@ -1,0 +1,9 @@
+0. HelloServlet 외우기
+1. 테이블생성(student)
+2. sql 파일작성(student.sql)
+3. DTO작성(Student)
+4. DAO작성(StudentDao)
+5. Service작성(StudentService)
+6. html(jsp)작성
+   student_list.jsp
+	

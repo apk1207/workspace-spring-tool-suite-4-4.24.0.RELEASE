@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
+	id="WebApp_ID" version="4.0">
+	<display-name>servletSite</display-name>
+	<!-- servlet alias 부여 -->
+	<servlet>
+		<servlet-name>hellotext</servlet-name>
+		<servlet-class>com.itwill.servlet.HelloTextServlet</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>hello</servlet-name>
+		<servlet-class>com.itwill.servlet.HelloServlet</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>gugudantext</servlet-name>
+		<servlet-class>com.itwill.servlet.GugudanTextServlet</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>gugudan</servlet-name>
+		<servlet-class>com.itwill.servlet.GugudanServlet</servlet-class>
+	</servlet>
+	
+	<!-- servlet alias 와 요청url mapping -->
+	<servlet-mapping>
+		<servlet-name>hello</servlet-name>
+		<url-pattern>/hello.do</url-pattern>
+	</servlet-mapping>
+	
+	<servlet-mapping>
+		<servlet-name>gugudan</servlet-name>
+		<url-pattern>/gugudan.do</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>gugudantext</servlet-name>
+		<url-pattern>/gugudantext</url-pattern>
+	</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>hellotext</servlet-name>
+		<url-pattern>/hellotext</url-pattern>
+		<!-- 
+		<url-pattern>/hellotext.do</url-pattern>
+		<url-pattern>/hellotext.nhn</url-pattern>
+		<url-pattern>/hellotext.daum</url-pattern>
+		<url-pattern>/hellotext.kakao</url-pattern> 
+		-->
+	</servlet-mapping>
+
+
+
+	<welcome-file-list>
+		
+		<!-- <welcome-file>gugudan.do</welcome-file> -->
+		<welcome-file>index.html</welcome-file>
+		<welcome-file>index.jsp</welcome-file>
+		<welcome-file>index.htm</welcome-file>
+		<welcome-file>default.html</welcome-file>
+		
+		<welcome-file>default.jsp</welcome-file>
+		<welcome-file>default.htm</welcome-file>
+	</welcome-file-list>
+</web-app>

@@ -1,0 +1,8 @@
+https://www.oracle.com/technetwork/java/javase/overview/index.html
+https://www.oracle.com/technetwork/java/javaee/tech/index-jsp-142185.html
+
+API DOCUMENT
+http://docs.oracle.com/javaee/7/api/
+https://javaee.github.io/javaee-spec/javadocs/
+
+
