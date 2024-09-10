@@ -12,7 +12,7 @@ import jakarta.servlet.http.HttpServletResponse;
 
 
 
-@WebServlet("/lifecycle_image_counter.do")
+@WebServlet("/lifecycle_image_counter")
 public class LifeCycleCounterImageServlet extends HttpServlet {
 	
 	private int count;
