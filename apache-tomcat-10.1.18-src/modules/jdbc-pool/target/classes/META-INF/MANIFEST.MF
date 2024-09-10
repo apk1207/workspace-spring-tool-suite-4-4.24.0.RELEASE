@@ -1,0 +1,12 @@
+Manifest-Version: 1.0
+Built-By: itwill
+Build-Jdk: 21.0.3
+Specification-Title: jdbc-pool
+Specification-Version: 8.0.15-SNAPSHOT
+Specification-Vendor: The Apache Software Foundation
+Implementation-Title: jdbc-pool
+Implementation-Version: 8.0.15-SNAPSHOT
+Implementation-Vendor-Id: org.apache.tomcat
+Implementation-Vendor: The Apache Software Foundation
+Created-By: Maven Integration for Eclipse
+
