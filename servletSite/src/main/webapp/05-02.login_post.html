@@ -14,7 +14,7 @@
  action:요청할 URL(서블릿URL)
  method:요청방법
  -->
-<form action="post_login.do" method="post">
+<form action="post_login" method="post">
 	아이디:<input type="text" name="id"><br/>
 	패에쓰:<input type="password" name="pass"><br/><br/>
 	<!-- 
@@ -31,21 +31,21 @@
   		- 형식:name1=value1&name2=value2
   		- ex> name=kim&phone=1234&address=seoul
   
-	  1.GET  요청방식 : request.do?
-	    ex> /servletSite/request.do?name=kim&phone=1234&address=kyunggi
+	  1.GET  요청방식 : request?
+	    ex> /servletSite/request?name=kim&phone=1234&address=kyunggi
 	    
 	    			----------------------------------------------------------------------------|
-	    요청라인  	|GET /servletSite/request.do?name=kim&phone=1234&address=kyunggi HTTP/1.1	|	
+	    요청라인  	|GET /servletSite/request?name=kim&phone=1234&address=kyunggi HTTP/1.1	|	
 	    요청헤더  	|HOST:192.168.15.31															|
 	    ...			|...																		|
 	    			|---------------------------------------------------------------------------|
 	    요청바디	|없다																		|
 	    			----------------------------------------------------------------------------|
 	    
-	  2.POST 요청방식 : request.do  
+	  2.POST 요청방식 : request 
 	  
 	    			----------------------------------------------------------------------------|			
-	    요청라인  	|POST /servletSite/request.do HTTP/1.1										|						
+	    요청라인  	|POST /servletSite/request HTTP/1.1										|						
 	    요청헤더  	|HOST:192.168.15.31															|
 	    ...			|...																		|
 	    			|---------------------------------------------------------------------------|
