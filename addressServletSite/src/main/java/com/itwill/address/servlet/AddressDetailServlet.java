@@ -62,7 +62,7 @@ public class AddressDetailServlet extends HttpServlet {
 			out.println("<meta charset='UTF-8'>");
 			out.println("<title>Insert title here</title>");
 			out.println("</head>");
-			out.println("<body>");
+			out.println("<body>");	
 			out.printf("<h1>[%s님 주소록상세보기]</h1><hr>",address.getName());
 			out.println("<div>");
 			out.println("	<a href='address_main'>[메인]</a>");

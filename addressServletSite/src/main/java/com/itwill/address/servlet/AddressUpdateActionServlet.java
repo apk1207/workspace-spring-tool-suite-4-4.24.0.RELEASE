@@ -2,6 +2,9 @@ package com.itwill.address.servlet;
 
 import java.io.IOException;
 
+import com.itwill.address.Address;
+import com.itwill.address.AddressService;
+
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -32,7 +35,14 @@ public class AddressUpdateActionServlet extends HttpServlet {
 			 */
 			request.setCharacterEncoding("UTF-8");
 			String noStr=request.getParameter("no");
+			String name=request.getParameter("name");
+			String phone=request.getParameter("phone");
+			String address=request.getParameter("address");
 			
+			Address updateAddr = new Address(Integer.parseInt(noStr),name, phone, address);
+			
+			AddressService addressService = new AddressService();
+			addressService.addressUpdate(updateAddr);
 			
 			response.sendRedirect("address_detail?no="+noStr);	
 			
