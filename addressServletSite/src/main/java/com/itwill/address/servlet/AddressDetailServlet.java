@@ -44,14 +44,12 @@ public class AddressDetailServlet extends HttpServlet {
 			 ""   ==> http://localhost/addressSite/address_detail?no=
 			 */
 			if(noStr==null || noStr.equals("")) {
-				response.sendRedirect("address_list");
+				response.sendRedirect("address_main");
 				return;
 			}
 			
-			AddressService addressService = new AddressService();
-			Address address = addressService.addressDetail(Integer.parseInt(noStr));
-			
-			
+			AddressService addressService=new AddressService();
+			Address address=addressService.addressDetail(Integer.parseInt(noStr));
 			
 			
 			response.setContentType("text/html;charset=UTF-8");
@@ -62,14 +60,21 @@ public class AddressDetailServlet extends HttpServlet {
 			out.println("<meta charset='UTF-8'>");
 			out.println("<title>Insert title here</title>");
 			out.println("</head>");
-			out.println("<body>");	
+			out.println("<body>");
 			out.printf("<h1>[%s님 주소록상세보기]</h1><hr>",address.getName());
 			out.println("<div>");
 			out.println("	<a href='address_main'>[메인]</a>");
 			out.println("	<a href='address_insert_form'>[주소록쓰기폼]</a>");
 			out.println("	<a href='address_list'>[주소록리스트]</a>");
 			out.printf("	<a href='address_delete_action?no=%d'>%s님삭제[GET]</a>",address.getNo(),address.getName());
-			out.printf("	<a href='address_update_form?no=%d'>[%s님 주소록수정폼]</a>",address.getNo(), address.getName());
+			out.printf("<form action='address_delete_action' method='post'  style='display: inline;'>");
+			out.printf("<input type='hidden' name='no' value='%s' >",address.getNo());
+			out.printf("<input type='submit' value='김경호님삭제[POST]'>");
+			out.printf("</form>");
+			
+			
+			
+			out.printf("	<a href='address_update_form?no=%d'>[%s님 주소록수정폼]</a>",address.getNo(),address.getName());
 			out.println("</div>");
 			out.println("<p>");
 			out.printf("	번호:%d<br>",address.getNo());

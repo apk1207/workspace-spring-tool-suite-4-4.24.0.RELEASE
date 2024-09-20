@@ -38,16 +38,12 @@ public class AddressUpdateActionServlet extends HttpServlet {
 			String name=request.getParameter("name");
 			String phone=request.getParameter("phone");
 			String address=request.getParameter("address");
-			
-			Address updateAddr = new Address(Integer.parseInt(noStr),name, phone, address);
-			
-			AddressService addressService = new AddressService();
-			addressService.addressUpdate(updateAddr);
-			
+			AddressService addressService=new AddressService();
+			addressService.addressUpdate(new Address(Integer.parseInt(noStr), name, phone, address));
 			response.sendRedirect("address_detail?no="+noStr);	
-			
 		} catch (Exception e) {
 			e.printStackTrace();
+			
 		}
 
 	}

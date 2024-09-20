@@ -38,6 +38,7 @@ public class AddressDeleteActionServlet extends HttpServlet {
 			request.setCharacterEncoding("UTF-8");
 			String noStr = request.getParameter("no");
 			
+			// noStr 파라미터값이 없거나 null 값으로 메소드가 호출되면 address_list 페이지 리다이렉션
 			if(noStr==null || noStr.equals("")) {
 				response.sendRedirect("address_list");
 				return;
