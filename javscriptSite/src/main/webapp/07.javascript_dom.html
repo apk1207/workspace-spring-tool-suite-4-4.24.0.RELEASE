@@ -5,26 +5,69 @@
 <title>Insert title here</title>
 <script type="text/javascript">
 	function access_form() {
-
+		let formE = document.getElementById('f');
+		formE.id.value='guard';
+		formE.irum.value='가이드';
+		formE.style.border='1px solid orange';
 	}
 	function access_div() {
-
+		/************innerHTML속성**************/
+		let div1E=document.getElementById('div1');
+		let div1Content = div1E.innerHTML;
+		console.log("div1Content-->"+div1Content);
+		
+		/*
+		template literal(``)을 사용하면 자바스트립트값을출력할수있어요
+		ex>  
+			let name = '김경호';
+			let msg  = ` ${name}님안녕하세요!!`;
+		*/
+		let name1='김태희';		
+		div1E.innerHTML=`
+			<ol>
+				<li>${name1}</li>
+				<li>이효리</li>
+				<li>고소영</li>
+			</ol>
+			<img src='penguin1.gif' width='30' height='30'/>	
+			<img src='penguin2.gif' width='30' height='30'/>	
+			<img src='penguin3.gif' width='30' height='30'/>	
+		`;
+		
+	
 	}
-	var count = 0;
+	let count = 0;
 	function access_img() {
-
+		count=count%3;
+		count++;
+		
+		let imageE=document.getElementById('img1');
+		imageE.src=`penguin${count}.gif`;
+		
 	}
 	function form_display() {
-
+		let f=document.getElementById('f');
+		if(f.style.visibility=='hidden'){
+			f.style.visibility='visible';
+		}else{
+			f.style.visibility='hidden';
+		}
+		
+		
 	}
+	function init(){
+		let f=document.getElementById('f');
+		f.style.visibility='hidden';
+	}
+	
 </script>
 
 </head>
-<body>
-	<h1 onmouseover="form_display();">javascript dom[document object
+<body onload="init();" onmousemove="access_img();">
+	<h1 onmouseenter="form_display();" onmouseleave="form_display();">javascript dom[document object
 		model]</h1>
 	<hr>
-	<form action="" name='f' id='f'>
+	<form action='' name='f' id='f'>
 		아이디:<input type="text" name="id" id="id"><br> 이 름:<input
 			type="text" name="irum" id="irum"><br>
 	</form>

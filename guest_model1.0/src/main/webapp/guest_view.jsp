@@ -2,19 +2,28 @@
 <%@page import="com.itwill.guest.GuestService"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-
 <%
-String guest_noStr= request.getParameter("guest_no");
+//0.요청객체encoding설정
+request.setCharacterEncoding("UTF-8");
 
+//1.guest_no 파라메타받기
+String guest_noStr=request.getParameter("guest_no");
+
+//2.재대로된 요청을 받지 못했을시 메인페이지로 전환
 if(guest_noStr==null || guest_noStr.equals("")){
-	response.sendRedirect("guest_list.jsp");
+	response.sendRedirect("guest_main.jsp");
 	return;
 }
-GuestService guestService = new GuestService();
-Guest guest = guestService.guestDetail(Integer.parseInt(guest_noStr));
+
+//2.GuestService객체생성
+GuestService guestService=new GuestService();
+
+//3.GuestService객체 guestDetail(guest_no) 메쏘드호출
+Guest guest=guestService.guestDetail(Integer.parseInt(guest_noStr));
+
+//4.Guest 출력
 
 %>    
-    
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -63,45 +72,45 @@ Guest guest = guestService.guestDetail(Integer.parseInt(guest_noStr));
 								</tr>
 							</table> <!-- view Form  -->
 							<form name="f" method="post">
-								<input type="hidden" name="guest_no" value="25" />
+								<input type="hidden" name="guest_no" value="<%=guest.getGuestNo()%>" />
 								<table border="0" cellpadding="0" cellspacing="1" width="590"
 									bgcolor="BBBBBB">
 									<tr>
 										<td width=100 align=center bgcolor="E6ECDE" height="22">번호</td>
 										<td width=490 bgcolor="ffffff" align="left"
-											style="padding-left: 10px"><%=guest.getGuestNo() %></td>
+											style="padding-left: 10px"><%=guest.getGuestNo()%></td>
 									</tr>
 									<tr>
 										<td width=100 align=center bgcolor="E6ECDE" height="22">이름</td>
 										<td width=490 bgcolor="ffffff" align="left"
-											style="padding-left: 10px"><%=guest.getGuestName() %></td>
+											style="padding-left: 10px"><%=guest.getGuestName()%></td>
 									</tr>
 									<tr>
 										<td width=100 align=center bgcolor="E6ECDE" height="22">날짜</td>
 										<td width=490 bgcolor="ffffff" align="left"
-											style="padding-left: 10px"><%=guest.getGuestDate() %></td>
+											style="padding-left: 10px"><%=guest.getGuestDate()%></td>
 									<tr>
 										<td width=100 align=center bgcolor="E6ECDE" height="22">홈페이지</td>
 										<td width=490 bgcolor="ffffff" align="left"
-											style="padding-left: 10px"><%=guest.getGuestHomepage() %></td>
+											style="padding-left: 10px"><%=guest.getGuestHomepage()%></td>
 									</tr>
 									<tr>
 										<td width=100 align=center bgcolor="E6ECDE" height="22">제목</td>
 										<td width=490 bgcolor="ffffff" align="left"
-											style="padding-left: 10px"><%=guest.getGuestTitle() %></td>
+											style="padding-left: 10px"><%=guest.getGuestTitle()%></td>
 									</tr>
 									<tr>
 										<td width=100 align=center bgcolor="E6ECDE" height="110">내용</td>
 										<td width=490 bgcolor="ffffff" align="left"
-											style="padding-left: 10px"><%=guest.getGuestContent() %></td>
+											style="padding-left: 10px"><%=guest.getGuestContent()%></td>
 									</tr>
 								</table>
 							</form> <br />
 							<table width=590 border=0 cellpadding=0 cellspacing=0>
 								<tr>
 									<td align=center><input type="button" value="수정"
-										onClick="guestModifyForm();"> &nbsp; <input type="button"
-										value="삭제" onClick="guestRemove();"> &nbsp; <input
+										onclick="guestModifyForm();"> &nbsp; <input type="button"
+										value="삭제" onclick="guestRemove();"> &nbsp; <input
 										type="button" value="목록" onClick="guestList()"></td>
 								</tr>
 							</table>
