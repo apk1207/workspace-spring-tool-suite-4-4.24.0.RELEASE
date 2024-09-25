@@ -19,7 +19,6 @@ String message=request.getParameter("message");
 /*
 2.업무실행(Service객체메쏘드호출)
 */
-
 %>    
 <!DOCTYPE html>
 <html>
@@ -46,3 +45,15 @@ String message=request.getParameter("message");
 <a href="4.form1.jsp">가입폼</a>
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+

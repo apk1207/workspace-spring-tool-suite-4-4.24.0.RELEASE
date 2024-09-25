@@ -23,3 +23,14 @@
 	<a href='4.search_form.jsp'>다시검색</a>
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+

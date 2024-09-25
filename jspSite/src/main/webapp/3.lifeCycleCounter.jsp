@@ -24,5 +24,9 @@
 			</font>
 			 번입니다. 
 			</center> 
+			<br>
+			<br>
+			<br>
+			<jsp:include page="6-2.action_tag_included_footer.jsp"/>
 			</body> 
 </html> 

@@ -1,5 +1,6 @@
-<%@page import="com.itwill.address.Address"%>
 <%@page import="com.itwill.address.AddressService"%>
+<%@page import="com.itwill.address.Address"%>
+
 <%@page import="java.util.ArrayList"%>
 <%@page import="java.util.Date"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -10,8 +11,8 @@ Date today = new Date();
 ArrayList<String> nameList = new ArrayList<String>();
 nameList.add("KIM");
 
-AddressService addressService = new AddressService();
-Address address = new Address();
+AddressService addressService=new AddressService();
+Address address=new  Address();
 
 %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">

@@ -3,6 +3,6 @@
 <hr width="800">
 <p align="center">
 	<b><font size="3">Copyright (</font>c<font size="2">)..By <font
-			color="#0000ff">Kimkyoungho.[김경호]</font> All rights reserved.
+			color="#0000ff">Kimkyoungho.[김경미]</font> All rights reserved.
 	</font></b>
 </p>

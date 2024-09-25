@@ -8,9 +8,9 @@
 <%
 for(int i=0;i<5;i++){
 %>
-	<h3>Hello JSP</h3><hr>
+	<h3>Hello JSP[change]</h3><hr>
 <%
 }
-%>
+%>	
 </body>
 </html>

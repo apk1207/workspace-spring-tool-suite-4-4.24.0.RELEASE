@@ -5,13 +5,11 @@
 <title>Insert title here</title>
 </head>
 <body>
-<%for(int i=0;i<10;i++) {%>
+<%for(int i=0;i<10;i++){ %>
 	<h3>Hello JSP
-	
-	<% out.print(i+1);%>
-	
+	<%out.print(i+1);%>
 	</h3>
 	<hr/>
-<%} %>
+<%}%>
 </body>
 </html>

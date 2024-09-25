@@ -4,6 +4,7 @@
 <HEAD>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <TITLE>방가워요 JSP</TITLE>
+<link rel="stylesheet" type="text/css" href="css/common.css">
 </HEAD>
 <BODY>
 	<center>
@@ -54,5 +55,6 @@
 		</table>
 	</center>
 	<br />
+	<jsp:include page="6-2.action_tag_included_footer.jsp"/>
 </BODY>
 </HTML>
