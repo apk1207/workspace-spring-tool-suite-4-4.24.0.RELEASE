@@ -17,8 +17,8 @@ public class StudentDao4_UPDATE_DELETE_Main {
 		 parameterType: DTO,VO,Domain
 		 */
 		System.out.println("---------updateStudentById---------------------------");
-		
-		System.out.println("update row count:"+0);
+		System.out.println("update row count:"+
+				studentDao.updateStudentById(new Student(new Integer(23), "팔팔팔", "888@gmail.com", new Date(), "888-8888")));
 		/**************************************************
 		 DELETE
 		 ***************************************************/
@@ -26,7 +26,7 @@ public class StudentDao4_UPDATE_DELETE_Main {
 		parameterType: java.lang.Integer,java.lang.String
 		*/
 		System.out.println("---------deleteStudentById---------------------------");
-		System.out.println("delete row count:"+0);
+		System.out.println("delete row count:"+studentDao.deleteStudentById(50));
 		
 		
 	}

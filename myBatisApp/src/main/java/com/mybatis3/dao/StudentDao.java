@@ -71,14 +71,18 @@ public class StudentDao {
 	 * resultType :  String,Wrapper,List<Wrapper>,List<String>
 	 */
 	public String  findStudentNameById(Integer studId) {
-		SqlSession sqlSession = sqlSessionFactory.openSession(true);
-		String name=sqlSession.selectOne(NAMESPACE+"findStudentNameById",studId);
+		SqlSession sqlSession=sqlSessionFactory.openSession(true);
+		
+		String name=
+				sqlSession.selectOne(NAMESPACE+"findStudentNameById",studId);
 		sqlSession.close();
 		return name;
 	}
 	public List<String> findStudentNameList(){
-		SqlSession sqlSession = sqlSessionFactory.openSession(true);
-		List<String> nameList=sqlSession.selectList(NAMESPACE+"findStudentNameList");
+		SqlSession sqlSession=
+				sqlSessionFactory.openSession(true);
+		List<String> nameList=
+				sqlSession.selectList(NAMESPACE+"findStudentNameList");
 		sqlSession.close();
 		return nameList;
 	}
@@ -86,22 +90,31 @@ public class StudentDao {
 	 3. SELECT[student + address JOIN]( 1 : 1 )
 	 **************************************************/
 	/*
-	 * resultMap : studentWithAddressResultMap
+	 * resultMap : studentResultMap
 	 */
 	public Student findStudentByIdWithAddress(Integer studId) {
-		Student student=null;
+		SqlSession sqlSession=
+				sqlSessionFactory.openSession(true);
+		Student student=sqlSession
+					.selectOne(NAMESPACE+"findStudentByIdWithAddress",studId);
+		sqlSession.close();
 		return student;
 	}
 
 	/*********************************************************
-	 4. SELECT[students + courses[course_enrollment]+course] JOIN( 1 : N )
+	 4. SELECT[students + course_enrollment [ +course ] JOIN( 1 : N )
 	 ********************************************************/
 	/*
-	 * resultMap : studentWithCoursesResultMap
+	 * resultMap : studentResultMap
 	 */
 	public Student findStudentByIdWithCourses(Integer studId) {
-		Student student =null;
+		SqlSession sqlSession=
+				sqlSessionFactory.openSession(true);
 		
+		Student student =
+				sqlSession.selectOne(NAMESPACE+"findStudentByIdWithCourses",
+						studId);
+		sqlSession.close();
 		return student;
 	}
 	/**************************************************
@@ -123,16 +136,18 @@ public class StudentDao {
 	parameterType: DTO,VO,Domain
 	*/
 	public int insertStudentBySequence(Student student) {
-		SqlSession sqlSession = sqlSessionFactory.openSession(true);
-		int rowCount =
-				sqlSession.insert(NAMESPACE+"insertStudentBySequence",student);
+		SqlSession sqlSession=sqlSessionFactory.openSession(true);
+		int rowCount=
+			sqlSession.insert(NAMESPACE+"insertStudentBySequence", student);
 		sqlSession.close();
 		return rowCount;
 	}
 	public int insertStudentBySequenceReturnPrimaryKey(Student student) {
-		
-		int rowCount=0;
-		return 0;
+		SqlSession sqlSession=sqlSessionFactory.openSession(true);
+		int rowCount=
+				sqlSession.insert(NAMESPACE+"insertStudentBySequenceReturnPrimaryKey", student);
+		sqlSession.close();
+		return student.getStudId();
 	}
 
 
@@ -144,9 +159,11 @@ public class StudentDao {
 	  parameterType: DTO,VO,Domain
 	 */
 	public int updateStudentById(Student updateStudent) {
-		
-		int rowCount=0;
-	
+		SqlSession sqlSession=sqlSessionFactory.openSession(true);
+		int rowCount=
+				sqlSession.update(NAMESPACE+"updateStudentById",
+									updateStudent);
+		sqlSession.close();
 		return rowCount;
 	}
 
@@ -157,8 +174,12 @@ public class StudentDao {
 	 parameterType: java.lang.Integer,java.lang.String
 	 */
 	public int deleteStudentById(Integer studId) {
-		
-		return 0;
+		SqlSession sqlSession=sqlSessionFactory.openSession(true);
+		int deleteRowCount=
+			sqlSession.delete(NAMESPACE+"deleteStudentById",
+					studId);
+		sqlSession.close();
+		return deleteRowCount;
 	}
 
 }

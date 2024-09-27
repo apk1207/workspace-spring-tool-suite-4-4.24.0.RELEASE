@@ -30,5 +30,6 @@ public class StudentDao1_SELECT_Main {
 		System.out.println("---------findStudentNameList--------------------");
 		System.out.println(studentDao.findStudentNameList());
 		
+		
 	}
 }
