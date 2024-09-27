@@ -2,23 +2,10 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.itwill.guest.mapper.GuestMapper">
 	<!-- resultMap 정의 -->
-	<resultMap id="guestResultMap" type="com.itwill.guest.Guest">
-<!-- mybatis-config.xml에 
-	<settings>
-		<setting name="mapUnderscoreToCamelCase" value="true"/>
-	</settings>
-	옵션 추가하면 컬럼을 자동으로 매핑해준다     
-	<id property="guestNo" column="guest_no"/>
-    <result property="guestName" column="guest_name"/>
-    <result property="guestDate" column="guest_date"/>
-    <result property="guestEmail" column="guest_email"/>
-    <result property="guestHomepage" column="guest_hompage"/>
-    <result property="guestTitle" column="guest_title"/>
-    <result property="guestContent" column="guest_content"/> -->
-	</resultMap>
 	
 	
-	<select id="selectAll" resultMap="guestResultMap">
+	
+	<select id="selectAll" resultType="com.itwill.guest.Guest">
 		select * from guest
 	</select>
 	<select id="selectByNo" >
