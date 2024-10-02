@@ -21,32 +21,41 @@ public class GuestDao {
 	}
 
 	public int insert(Guest guest) throws Exception {
-		
-		return 0;
+		SqlSession sqlSession = sqlSessionFactory.openSession(true);
+		int insertRowCount = sqlSession.insert(NAMESPACE+"insertGuest",guest);
+		sqlSession.close();
+		return guest.getGuestNo();
 	}
 
 
 	public int update(Guest guest) throws Exception {
-		
-		return 0;
+		SqlSession sqlSession = sqlSessionFactory.openSession(true);
+		int updateRowCount = sqlSession.update(NAMESPACE+"updateGuest",guest);
+		sqlSession.close();
+		return updateRowCount;
 	}
 
 
 	public int delete(int guestNo) throws Exception {
-	
-		return 0;
+		SqlSession sqlSession = sqlSessionFactory.openSession(true);
+		int deleteRowCount = sqlSession.delete(NAMESPACE+"deleteGuest",guestNo);
+		sqlSession.close();
+		return deleteRowCount;
 	}
 
 	
 	public Guest findByGuestNo(int guestNo) throws Exception {
-		
-		return null;
+		SqlSession sqlSession=sqlSessionFactory.openSession(true);
+		Guest guest = sqlSession.selectOne(NAMESPACE+"selectByNo",guestNo);
+		sqlSession.close();
+		return guest;
 	}
 
 	
 	public List<Guest> findByAll() throws Exception {
 		SqlSession sqlSession=sqlSessionFactory.openSession(true);
 		List<Guest> guestList= sqlSession.selectList(NAMESPACE+"selectAll");
+		sqlSession.close();
 		return guestList;
 	}
 

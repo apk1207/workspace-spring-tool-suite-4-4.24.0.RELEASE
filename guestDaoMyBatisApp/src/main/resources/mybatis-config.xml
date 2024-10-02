@@ -5,6 +5,7 @@
 <configuration>
 	<properties resource="jdbc.properties" />
 	<settings>
+		<!-- DB의컬럼과 DTO의프로퍼티 매핑을 자동으로 잡아준다 -->
 		<setting name="mapUnderscoreToCamelCase" value="true"/>
 	</settings>
 	<typeAliases>

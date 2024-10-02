@@ -38,6 +38,16 @@ public class StudentDao {
 		sqlSession.close();
 		return student;
 	}
+	public List<Student> findStudentByNameLike(String name) {
+		SqlSession sqlSession = sqlSessionFactory.openSession(true);
+		List<Student> students = 
+				sqlSession.selectList(NAMESPACE+"findStudentByNameLike","%"+name+"%");
+		/*List<Student> students = 
+				sqlSession.selectList(
+						NAMESPACE+"findStudentByNameLike",name);*/
+		sqlSession.close();
+		return students;
+	}
 
 	public List<Student> findAllStudents() {
 		SqlSession sqlSession=sqlSessionFactory.openSession(true);
@@ -82,7 +92,8 @@ public class StudentDao {
 		SqlSession sqlSession=
 				sqlSessionFactory.openSession(true);
 		List<String> nameList=
-				sqlSession.selectList(NAMESPACE+"findStudentNameList");
+				sqlSession.selectList(NAMESPACE+
+						"findStudentNameList");
 		sqlSession.close();
 		return nameList;
 	}
@@ -97,7 +108,7 @@ public class StudentDao {
 				sqlSessionFactory.openSession(true);
 		Student student=sqlSession
 					.selectOne(NAMESPACE+"findStudentByIdWithAddress",studId);
-		sqlSession.close();
+		
 		return student;
 	}
 
@@ -114,7 +125,7 @@ public class StudentDao {
 		Student student =
 				sqlSession.selectOne(NAMESPACE+"findStudentByIdWithCourses",
 						studId);
-		sqlSession.close();
+		
 		return student;
 	}
 	/**************************************************
@@ -126,6 +137,9 @@ public class StudentDao {
 	public Student findStudentByIdWithAddressAndCourses(Integer studId) {
 		
 		Student student =null;
+		
+		
+		
 		return student;
 	}
 	
@@ -146,7 +160,6 @@ public class StudentDao {
 		SqlSession sqlSession=sqlSessionFactory.openSession(true);
 		int rowCount=
 				sqlSession.insert(NAMESPACE+"insertStudentBySequenceReturnPrimaryKey", student);
-		sqlSession.close();
 		return student.getStudId();
 	}
 
@@ -178,8 +191,61 @@ public class StudentDao {
 		int deleteRowCount=
 			sqlSession.delete(NAMESPACE+"deleteStudentById",
 					studId);
-		sqlSession.close();
 		return deleteRowCount;
 	}
-
+	/**************************************************
+	 결과데이타를 Map(HashMap)에 담아서 반환할수있다
+	***************************************************/
+	/*
+	resultType:Map,HashMap	
+	*/
+	public HashMap findStudentByIdMap(Integer studId) {
+		SqlSession  sqlSession = sqlSessionFactory.openSession();
+		HashMap findStudentMap=
+				sqlSession.selectOne(NAMESPACE+"findStudentByIdMap",studId);
+		
+		sqlSession.commit();
+		sqlSession.close();
+		return findStudentMap;
+	}
+	
+	public List<HashMap> findAllStudentsMapList(){
+		SqlSession sqlSession=sqlSessionFactory.openSession();
+		List<HashMap> studentMapList=
+				sqlSession.selectList(NAMESPACE+"findAllStudentsMapList");
+		sqlSession.close();
+		return studentMapList;
+	}
+	
+	/**************************************************
+	 파라메타데이타를 Map(HashMap)에 담아서 전달할수있다
+	***************************************************/
+	public List<Student> findStudentByIdRangeParamMap(Map rangeMap){
+		SqlSession sqlSession=sqlSessionFactory.openSession();
+		List<Student> studentList=
+				sqlSession.
+				selectList(NAMESPACE+"findStudentByIdRangeParamMap",rangeMap);
+		sqlSession.close();
+		return studentList;
+	}
+	public int updateStudentParamMap(Map studentMap){
+		SqlSession sqlSession=sqlSessionFactory.openSession(true);
+		int rowCount=
+				sqlSession.
+				update(NAMESPACE+"updateStudentParamMap",studentMap);
+		sqlSession.close();
+		return rowCount;
+	}
+	public List<Student> findStudentsThreeParamMap(Map threeStudentMap){
+		SqlSession sqlSession=sqlSessionFactory.openSession();
+		List<Student> studentList=
+				sqlSession.
+				selectList(NAMESPACE+"findStudentsThreeParamMap",threeStudentMap);
+		sqlSession.close();
+		
+		
+		
+		return studentList;
+	}
+	
 }
